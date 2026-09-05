@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Teacher's Day appreciation webpage"
+    >
+
+    <title>
+        Happy Teacher's Day | With Gratitude
+    </title>
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ============================= -->
+<!-- NAVBAR -->
+<!-- ============================= -->
+
+<header class="navbar">
+
+    <a href="#home" class="brand">
+
+        <span class="brand-icon">
+            ✦
+        </span>
+
+        <span>
+            With Gratitude
+        </span>
+
+    </a>
+
+
+
+
+
+    <nav>
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#appreciation">
+            Appreciation
+        </a>
+
+        <a href="#wall">
+            Messages
+        </a>
+
+        <a href="#share">
+            Share
+        </a>
+
+    </nav>
+
+
+    <a href="#share" class="nav-button">
+
+        Write a Message
+
+    </a>
+
+</header>
+
+
+
+<!-- ============================= -->
+<!-- HERO SECTION -->
+<!-- ============================= -->
+
+<section class="hero" id="home">
+
+
+    <div class="floating-circle circle-one"></div>
+
+    <div class="floating-circle circle-two"></div>
+
+
+    <div class="hero-content reveal">
+
+
+        <div class="eyebrow">
+
+            <span>✿</span>
+
+            Teacher's Day 2026
+
+        </div>
+
+
+        <h1>
+
+            To the ones who
+            <br>
+
+            <em>
+                help us grow.
+            </em>
+
+        </h1>
+
+
+        <p class="hero-description">
+    Every lesson, every correction, and every
+    word of encouragement becomes a small part
+    of who we become.
+
+    Today, we celebrate our wonderful trainer,
+    <strong>Ms. Praveena</strong>, who makes
+    learning meaningful.
+</p>
+
+
+        <div class="hero-buttons">
+
+
+            <a
+                href="#wall"
+                class="primary-button"
+            >
+
+                Read Our Messages
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+
+            <a
+                href="#share"
+                class="text-button"
+            >
+
+                Share your gratitude
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Quote Card -->
+
+    <div class="quote-card reveal">
+
+
+        <div class="quote-icon">
+
+            ✽
+
+        </div>
+
+
+        <p>
+
+            “A great teacher can inspire hope,
+            ignite imagination, and instill a love
+            of learning.”
+
+        </p>
+
+
+        <span>
+
+            — Appreciation from your Ms. Praveena
+
+        </span>
+
+
+    </div>
+
+
+
+    <div class="scroll-indicator">
+
+        SCROLL TO EXPLORE
+
+        <span>
+            ↓
+        </span>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ============================= -->
+<!-- APPRECIATION SECTION -->
+<!-- ============================= -->
+
+<section
+    class="appreciation section"
+    id="appreciation"
+>
+
+
+    <div class="section-label">
+
+        01 / APPRECIATION
+
+    </div>
+
+
+    <div class="appreciation-grid">
+
+
+        <div>
+
+            <h2>
+
+                More than a
+                <br>
+
+                <em>
+                    lesson.
+                </em>
+
+            </h2>
+
+        </div>
+
+
+        <div>
+
+            <p class="large-text">
+
+                Behind every confident learner
+                is someone who took the time to
+                explain one more time, listen one
+                more time, and believe one more time.
+
+            </p>
+
+
+            <p class="normal-text">
+    These messages are a small way
+    for our trainees to say thank you
+    to <strong>Ms. Praveena</strong> for
+    her patience, guidance and constant support.
+</p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================= -->
+<!-- MESSAGE WALL -->
+<!-- ============================= -->
+
+<section
+    class="messages section"
+    id="wall"
+>
+
+
+    <div class="section-heading">
+
+
+        <div>
+
+            <div class="section-label">
+
+                02 / FROM THE TRAINEES
+
+            </div>
+
+
+            <h2>
+
+                Words from
+                <em>
+                    us.
+                </em>
+
+            </h2>
+
+        </div>
+
+
+        <div class="message-count">
+
+            <span>
+                {{ feedback|length }}
+            </span>
+
+            messages
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="message-grid">
+
+
+        {% for item in feedback %}
+
+
+        <article class="message-card reveal">
+
+
+            <div class="quote-mark">
+
+                “
+
+            </div>
+
+
+            <p>
+
+                {{ item["message"] }}
+
+            </p>
+
+
+            <div class="message-footer">
+
+
+                <div class="avatar">
+
+                    {{ item["trainee_name"][0]|upper }}
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+
+                        {{ item["trainee_name"] }}
+
+                    </strong>
+
+
+                    <small>
+
+                        Trainee
+
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+        </article>
+
+
+        {% else %}
+
+
+        <div class="empty-message">
+
+            No appreciation messages yet.
+
+            Be the first one to share!
+
+        </div>
+
+
+        {% endfor %}
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ============================= -->
+<!-- SHARE SECTION -->
+<!-- ============================= -->
+
+<section
+    class="share section"
+    id="share"
+>
+
+
+    <div class="share-container reveal">
+
+
+        <div class="share-content">
+
+
+            <div class="section-label">
+
+                03 / YOUR TURN
+
+            </div>
+
+
+            <h2>
+
+                Say
+                <em>
+                    thank you.
+                </em>
+
+            </h2>
+
+
+           <p>
+    Leave a short appreciation message
+    for <strong>Ms. Praveena</strong>.
+
+    Your words will appear on our
+    gratitude wall.
+</p>
+
+
+            <div class="database-note">
+
+                ✦ Your message is stored in our
+                SQLite database.
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- Feedback Form -->
+
+        <form
+            action="{{ url_for('add_feedback') }}"
+            method="POST"
+            class="feedback-form"
+        >
+
+
+            <label for="name">
+
+                Your Name
+
+            </label>
+
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                maxlength="60"
+                placeholder="Enter your name"
+                required
+            >
+
+
+
+            <div class="label-row">
+
+                <label for="message">
+
+                    Your Appreciation
+
+                </label>
+
+
+                <span id="counter">
+
+                    0 / 500
+
+                </span>
+
+            </div>
+
+
+            <textarea
+                id="message"
+                name="message"
+                maxlength="500"
+                rows="6"
+                placeholder="What would you like to thank your teacher for?"
+                required
+            ></textarea>
+
+
+            <button
+                type="submit"
+                class="primary-button submit-button"
+            >
+
+                Add to the Wall
+
+                <span>
+                    ✦
+                </span>
+
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+
+
+    <!-- Flask Flash Messages -->
+
+    {% with
+        messages =
+        get_flashed_messages(with_categories=true)
+    %}
+
+
+        {% if messages %}
+
+
+            <div class="flash-container">
+
+
+                {% for category, message in messages %}
+
+
+                    <div
+                        class="flash-message {{ category }}"
+                    >
+
+                        {{ message }}
+
+                    </div>
+
+
+                {% endfor %}
+
+
+            </div>
+
+
+        {% endif %}
+
+
+    {% endwith %}
+
+
+</section>
+
+
+
+<!-- ============================= -->
+<!-- FOOTER -->
+<!-- ============================= -->
+
+<footer>
+
+
+    <div class="footer-brand">
+
+        With Gratitude
+
+        <span>
+            ✦
+        </span>
+
+    </div>
+
+
+    <p>
+
+        Made with appreciation by the trainees
+        · Teacher's Day 2026
+
+    </p>
+
+
+    <a href="#home">
+
+        Back to top ↑
+
+    </a>
+
+
+</footer>
+
+
+
+<!-- ============================= -->
+<!-- JAVASCRIPT -->
+<!-- ============================= -->
+
+<script
+    src="{{ url_for('static', filename='js/script.js') }}"
+></script>
+
+
+</body>
+
+</html>
